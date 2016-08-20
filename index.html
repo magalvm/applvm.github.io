@@ -17,18 +17,18 @@ and open the template in the editor.
 <div class="wrapper" ng-controller="appCtrl">
    <header id="header">
     <h1>Main</h1>
-    <nav class="main-nav" ng-init="tab=0">
+    <nav class="main-nav">
         <ul>
-            <li><a href="#" ng-click="tab=1">Overview</a></li>
+            <li><a href="#" >Overview</a></li>
         </ul>
     </nav>
    </header>
-   <section class="content" ng-show="tab===1">
+   <section class="content">
       <section class="list">
           <h1>Items</h1>
           <form name="inputItem" ng-submit="addTodo()" novalidate>
             <input type="text" name="item" placeholder="Type name here..." ng-model="todoText" required>
-            <input type="submit" class="btnadd" value="Add new" ng-disabled="inputItem.item.$invalid">
+            <input type="submit" class="btnadd" value="Add new" ng-disabled="inputItem.item.$invalid&&inputComm.comment.$invalid">
           </form >
           <nav class="item-nav">
           <ul>
@@ -54,8 +54,8 @@ and open the template in the editor.
           </ul>
           <div class="formcomm">
             <form name="inputComm"ng-submit="addComm()" novalidate>
-               <input type="submit" value="" ng-disabled="inputComm.comment.$invalid">
-               <textarea name="comment"rows="10" cols="45" name="text" ng-model="commText" required></textarea>
+               <div ></div>
+               <textarea name="comment"rows="10" cols="45" name="text" ng-model="commText" wrap="soft|hard" required></textarea>
             </form>
           </div>
           </div>
